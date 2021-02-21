@@ -2,37 +2,73 @@
 #Raspopova Alexandra 40%
 #Belozertseva Maria 35%
 #Adristi Fauzi 45%
-s=input()
-glas = 0
-sogl = 0
-k=0
-for i in s:
-    letter = i.lower()
-    if letter in "аеёиоуыэюя":
-        glas += 1
-    else:
-        sogl += 1
-print ('Слогов:',glas)
-m=s.split()
-words = len(m)
-print ('Слов:',words)
-for i in s:
-    sentences=s.count(".")
-print ('Предложений:',sentences)
-average_words=words/sentences
-print ('Средняя длина предложения в словах:', average_words)
-average_glas=glas/words
-print ('Средняя длина слова в слогах:', average_glas)
-index=206.835-1.3*average_words-60.1*average_glas
-print ('Индекс удобочитаемости Флеша:',index)
-if index<=25:
-    print("Текст трудно читается (для выпускников ВУЗов).")
-elif index>25 and index<=50:
-    print("Текст немного трудно читать (для студентов).")
-elif index>50 and index<=80:
-    print("Простой текст (для школьников).")
-elif index>80:
-    print('Текст очень легко читается (для младших школьников).')
+from textblob import TextBlob
+sentence=input()
+b = TextBlob(sentence)
+lang=b.detect_language()
+print(lang)
+if lang=="en":
+    glas1 = 0
+    sogl1 = 0
+    k1 = 0
+    for i in sentence:
+        letter = i.lower()
+        if letter in "aeiouy":
+            glas1 += 1
+        else:
+            sogl1 += 1
+    print('Слогов:', glas1)
+    m1 = sentence.split()
+    words1 = len(m1)
+    print('Слов:', words1)
+    for i in sentence:
+        sentences1 = sentence.count(".")
+    print('Предложений:', sentences1)
+    average_words1 = words1 / sentences1
+    print('Средняя длина предложения в словах:', average_words1)
+    average_glas1 = glas1 / words1
+    print('Средняя длина слова в слогах:', average_glas1)
+    index1 =index=206.835-1.3*average_words1-60.1*average_glas1
+    print('Индекс удобочитаемости Флеша:', index1)
+    if index1 <= 25:
+        print("Текст трудно читается (для выпускников ВУЗов).")
+    elif index1 > 25 and index1 <= 50:
+        print("Текст немного трудно читать (для студентов).")
+    elif index1 > 50 and index1 <= 80:
+        print("Простой текст (для школьников).")
+    elif index1 > 80:
+        print('Текст очень легко читается (для младших школьников).')
+if lang=="ru":
+    glas = 0
+    sogl = 0
+    k = 0
+    for i in sentence:
+        letter = i.lower()
+        if letter in "аеёиоуыэюя":
+            glas += 1
+        else:
+            sogl += 1
+    print('Слогов:', glas)
+    m = sentence.split()
+    words = len(m)
+    print('Слов:', words)
+    for i in sentence:
+        sentences = sentence.count(".")
+    print('Предложений:', sentences)
+    average_words = words / sentences
+    print('Средняя длина предложения в словах:', average_words)
+    average_glas = glas / words
+    print('Средняя длина слова в слогах:', average_glas)
+    index = 206.835 - 1.3 * average_words - 60.1 * average_glas
+    print('Индекс удобочитаемости Флеша:', index)
+    if index <= 25:
+        print("Текст трудно читается (для выпускников ВУЗов).")
+    elif index > 25 and index <= 50:
+        print("Текст немного трудно читать (для студентов).")
+    elif index > 50 and index <= 80:
+        print("Простой текст (для школьников).")
+    elif index > 80:
+        print('Текст очень легко читается (для младших школьников).')
     
 #CHECK POLARITY
 from textblob import TextBlob
