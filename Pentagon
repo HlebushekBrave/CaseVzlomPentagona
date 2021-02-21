@@ -88,3 +88,15 @@ elif polar == 1.0:
 else:
     tone = 'нейтральный'  # neutral
 print('Тональность текста: ' + tone)
+# CHECK SUBJECTIVITY
+text1 = TextBlob(s)
+if (text1.detect_language() != 'en'): #RU
+    text1 = (text1.translate(to='en'))
+    subject = text1.sentiment.subjectivity
+    sub = "{:.1%}".format(subject)
+    print('Объективность: ' + sub)
+else: #ENG
+    subject = text1.sentiment.subjectivity
+    object = 1 - subject
+    object = "{:.1%}".format(object)
+    print('Объективность: ' + object)
