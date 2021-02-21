@@ -89,7 +89,7 @@ else:
     tone = 'нейтральный'  # neutral
 print('Тональность текста: ' + tone)
 # CHECK SUBJECTIVITY
-text1 = TextBlob(s)
+text1 = TextBlob(sentence)
 if (text1.detect_language() != 'en'): #RU
     text1 = (text1.translate(to='en'))
     subject = text1.sentiment.subjectivity
