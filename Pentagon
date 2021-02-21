@@ -37,7 +37,7 @@ elif index>80:
 #CHECK POLARITY
 from textblob import TextBlob
 
-text = TextBlob('У нас росла липа. Липа стала стара. Липа стала суха. Липа упала. Пришли папа и Паша. У папы пила. У Паши топорик. Они распилили липу.')
+text = TextBlob(input())
 
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
@@ -62,14 +62,12 @@ print(tone)
 print('Тональность текста: '+tone)
 
 #CHECK SUBJECTIVITY
-from textblob import TextBlob
 
-text = TextBlob('У нас росла липа. Липа стала стара. Липа стала суха. Липа упала. Пришли папа и Паша. У папы пила. У Паши топорик. Они распилили липу.')
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
 #print(text)
 text.sentiment
 
-subject=text.sentiment.subjectivity
-sub="{:.1%}".format(subject)
-print('Объективность: '+sub)
+analysisPol = TextBlob(text).polarity
+analysisSub = TextBlob(text).subjectivity
+print("Объективность: ", (1-analysisSub)*100, "%", sep="")
