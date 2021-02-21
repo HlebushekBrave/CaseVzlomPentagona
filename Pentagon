@@ -1,7 +1,7 @@
 #Case study 4
 #Raspopova Alexandra 40%
-#Belozertseva Maria 35%
-#Adristi Fauzi 45%
+#Belozertseva Maria 25%
+#Adristi Fauzi 50%
 from textblob import TextBlob
 
 sentence = input()
@@ -29,7 +29,7 @@ if lang == "en":
     print('Средняя длина предложения в словах:', average_words1)
     average_glas1 = glas1 / words1
     print('Средняя длина слова в слогах:', average_glas1)
-    index1 = index = 206.835 - 1.3 * average_words1 - 60.1 * average_glas1
+    index1 = 0.39*(words1/sentences1)+11.8*(glas1/words1)-15.59
     print('Индекс удобочитаемости Флеша:', index1)
     if index1 <= 25:
         print("Текст трудно читается (для выпускников ВУЗов).")
