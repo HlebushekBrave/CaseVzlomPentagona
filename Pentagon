@@ -3,11 +3,12 @@
 #Belozertseva Maria 35%
 #Adristi Fauzi 45%
 from textblob import TextBlob
-sentence=input()
+
+sentence = input()
 b = TextBlob(sentence)
-lang=b.detect_language()
+lang = b.detect_language()
 print(lang)
-if lang=="en":
+if lang == "en":
     glas1 = 0
     sogl1 = 0
     k1 = 0
@@ -28,7 +29,7 @@ if lang=="en":
     print('Средняя длина предложения в словах:', average_words1)
     average_glas1 = glas1 / words1
     print('Средняя длина слова в слогах:', average_glas1)
-    index1 =index=206.835-1.3*average_words1-60.1*average_glas1
+    index1 = index = 206.835 - 1.3 * average_words1 - 60.1 * average_glas1
     print('Индекс удобочитаемости Флеша:', index1)
     if index1 <= 25:
         print("Текст трудно читается (для выпускников ВУЗов).")
@@ -38,7 +39,7 @@ if lang=="en":
         print("Простой текст (для школьников).")
     elif index1 > 80:
         print('Текст очень легко читается (для младших школьников).')
-if lang=="ru":
+if lang == "ru":
     glas = 0
     sogl = 0
     k = 0
@@ -69,30 +70,21 @@ if lang=="ru":
         print("Простой текст (для школьников).")
     elif index > 80:
         print('Текст очень легко читается (для младших школьников).')
-    
-#CHECK POLARITY
+
+# CHECK POLARITY
 from textblob import TextBlob
-text = TextBlob(s)
+
+text = TextBlob(sentence)
 if (text.detect_language() != 'en'):
-    text=(text.translate(to='en'))
-#print(text)
+    text = (text.translate(to='en'))
+# print(text)
 text.sentiment
-polar=text.sentiment.polarity
-polar=round(polar,0)
+polar = text.sentiment.polarity
+polar = round(polar, 0)
 if polar == -1.0:
-    tone ='отрицательный' #negative
+    tone = 'отрицательный'  # negative
 elif polar == 1.0:
-    tone ='положительный' #positive
+    tone = 'положительный'  # positive
 else:
-    tone ='нейтральный' #neutral
-print('Тональность текста: '+tone)
-
-#CHECK SUBJECTIVITY
-if (text.detect_language() != 'en'):
-    text=(text.translate(to='en'))
-#print(text)
-text.sentiment
-
-analysisPol = TextBlob(text).polarity
-analysisSub = TextBlob(text).subjectivity
-print("Объективность: ", (1-analysisSub)*100, "%", sep="")
+    tone = 'нейтральный'  # neutral
+print('Тональность текста: ' + tone)
