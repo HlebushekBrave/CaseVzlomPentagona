@@ -37,7 +37,7 @@ elif index>80:
 #CHECK POLARITY
 from textblob import TextBlob
 
-text = TextBlob('And convergence generally worked the way economists long thought it would. In China, low-wage manufacturing of cheap goods for export eventually evolved into the production of more sophisticated goods and services, as workers and firms accumulated knowledge and experience.')
+text = TextBlob('У нас росла липа. Липа стала стара. Липа стала суха. Липа упала. Пришли папа и Паша. У папы пила. У Паши топорик. Они распилили липу.')
 
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
