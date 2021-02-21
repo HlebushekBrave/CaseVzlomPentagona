@@ -36,33 +36,22 @@ elif index>80:
     
 #CHECK POLARITY
 from textblob import TextBlob
-
 text = TextBlob(input())
-
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
-
 #print(text)
 text.sentiment
 polar=text.sentiment.polarity
-
-print(polar)
-
 polar=round(polar,0)
-print(polar)
-
 if polar == -1.0:
     tone ='отрицательный' #negative
 elif polar == 1.0:
     tone ='положительный' #positive
 else:
     tone ='нейтральный' #neutral
-print(tone)
-
 print('Тональность текста: '+tone)
 
 #CHECK SUBJECTIVITY
-
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
 #print(text)
