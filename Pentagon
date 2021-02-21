@@ -36,7 +36,7 @@ elif index>80:
     
 #CHECK POLARITY
 from textblob import TextBlob
-text = TextBlob(input())
+text = TextBlob(s)
 if (text.detect_language() != 'en'):
     text=(text.translate(to='en'))
 #print(text)
